@@ -1,0 +1,37 @@
+float locy,locx;
+int sz;
+float velx,vely;
+float gravity;
+float accx;
+
+void setup(){
+  background(0);
+  size(displayWidth,displayHeight);
+  locx=width/2;
+  locy=sz;
+  sz=50;
+  velx=0;
+  vely=0;
+  gravity=1;
+  accx=1;
+}
+void draw(){
+  background(0);
+  ellipse(locx,locy,sz,sz);
+ velx+=accx;
+vely+=gravity;
+locy+=(.5*vely);
+locx+=(.5*velx);
+if (locy>height){
+  locy=height-sz/2;
+  vely*=-.9;
+}
+if (locx>width-sz/2){
+   velx*=-.9;
+   accx*=-1;
+}
+if(locx<sz/2){
+  velx*=-.9;
+   accx*=1;
+}
+}
